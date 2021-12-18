@@ -18,19 +18,17 @@ function passwordCriteria ()  {
   console.log(promptLength);
 } else {
   window.alert("Try again! Please choose a number between 8 and 128.");
-  writePassword();
+  passwordCriteria();
 }
 //prompt the user to indicate if they want to include uppercase letters
 var confirmUppers = confirm("Would you like to include uppercase letters?");
 //prompt the user to indicate if they want to include numbers included
 var confirmNumbers = confirm("Include numbers?");
-
+//prompt the user to indicate if they want to include special characters
 var confirmSpecial = confirm("How about special characters?");
-if (promptSpecial) {
-  console.log(promptSpecial)
-} 
-var confirmLowers = confirm( "Lowers");
-//if user wants uppercase then store that and include the Upper variable in the generation
+//prompt the user to indicate if they want to include lowercase letters
+var confirmLowers = confirm( "Should we include lowercase letteres?");
+//restart all of the above confirms if the user doesn't select ANY of them
 if (confirmUppers === false && confirmNumbers === false && confirmSpecial === false && confirmLowers === false) {
   alert("You need to select at least 1 character option!");
   return null;
@@ -77,7 +75,7 @@ if (confirmUppers === false && confirmNumbers === false && confirmSpecial === fa
     }
     return results.join("");
   }
-
+}
 
 
 // Get references to the #generate element
@@ -94,4 +92,4 @@ function writePassword() {
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", passwordCriteria);
