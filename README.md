@@ -41,10 +41,51 @@ You are required to submit BOTH of the following for review:
 The URL of the deployed application.
 The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
+//prompt the user to indicate if they want to include uppercase letters
+  var promptUppers = window.prompt("Would you like to include uppercase letters?");
+
+  //if user wants uppercase then store that and include the Upper variable in the generation
+  if (promptUppers) {
+    console.log(promptUppers);
+    var storeUpper = document.querySelector("upper");
+  }
+  }
+  //if user does NOT want uppercase then only include the Lower array in the generate
 
 
-//this is what will create the actual password based on the criteria
-var actualPassword = function () {
-  var value = promptLength
+  //prompt the user to indicate if they want to include numbers included
+  var promptNumbers = window.prompt("Include numbers?");
+  if (promptNumbers) {
+    console.log(promptUppers);
 
-  
+  }
+  var promptSpecial = window.prompt("How about special characters?");
+  if (promptSpecial) {
+    console.log(promptSpecial)
+  } 
+
+
+//prompt the user to indicate if they want to include uppercase letters
+var confirmUppers = confirm("Would you like to include uppercase letters?");
+
+//if user wants uppercase then store that and include the Upper variable in the generation
+if (confirmUppers) {
+  console.log(promptUppers);
+  var storeUpper = document.querySelector("upper");
+}
+}
+//if user does NOT want uppercase then only include the Lower array in the generate
+
+
+//prompt the user to indicate if they want to include numbers included
+var promptNumbers = window.prompt("Include numbers?");
+if (promptNumbers) {
+  console.log(promptUppers);
+
+}
+var promptSpecial = window.prompt("How about special characters?");
+if (promptSpecial) {
+  console.log(promptSpecial)
+} 
+
+
