@@ -39,17 +39,15 @@ if (confirmUppers === false && confirmNumbers === false && confirmSpecial === fa
     confirmLowers: confirmLowers,
     confirmNumbers: confirmNumbers, 
     confirmSpecial: confirmSpecial,
-    
-  };
+    };
   return actualPassword;
 
   function randomIndex(arr) {
     var indexNum = Math.floor(Math.random() * arr.length);
     var randElement = arr[indexNum];
     return randElement;
-
   }
-  function generatePassword() {
+  function actualPassword() {
     var option = passwordCriteria();
     //where we store password as concatenated
     var results= [];
@@ -58,14 +56,25 @@ if (confirmUppers === false && confirmNumbers === false && confirmSpecial === fa
     //contain at least one of each to fulfill the requirements
     var minimumGuarantee= [];
     if (!actualPassword) return null;
-
+    //build all 4 pieces to grab from the arrays
     if (option.confirmUppers) {
       possibleCharacters = possibleCharacters.concat[Upper];
-      minimumGuarantee.push(randomIndex(Upper))
-
+      minimumGuarantee.push(randomIndex(Upper));
     } 
-    //3 more ifs for the other variables
-    //
+    
+    if (option.confirmSpecial) {
+      possibleCharacters = possibleCharacters.concat[Special];
+      minimumGuarantee.push(randomIndex(Special));
+    }
+    if (option.confirmNumbers) {
+      possibleCharacters = possibleCharacters.concat[Numbers];
+      minimumGuarantee.push(randomIndex(Numbers));
+    }
+    if (option.confirmLowers) {
+      possibleCharacters = possibleCharacters.concat[Lower];
+      minimumGuarantee.push(randomIndex(Lower));
+    }
+    
     for (var i = 0; i <option.length; i++) {
       var possibleCharacter = randomIndex(possibleCharacters);
       results.push(possibleCharacter);
@@ -77,7 +86,6 @@ if (confirmUppers === false && confirmNumbers === false && confirmSpecial === fa
   }
 }
 
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -85,11 +93,8 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", passwordCriteria);
